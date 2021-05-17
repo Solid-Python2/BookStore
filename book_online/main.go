@@ -1,5 +1,14 @@
 package main
-import "fmt"
+
+import (
+	"book_online/config"
+	"book_online/setup"
+)
+
 func main() {
-	fmt.Println("hello world")
+
+	//加载装置
+	setup.InitServerConfig()
+	addr := config.Config.Host.IP + ":" + config.Config.Host.Port
+	setup.InitServer(addr)
 }
